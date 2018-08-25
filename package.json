@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "You are building the API for a pizza-delivery company. Don't worry about a frontend, just build the API. Here's the spec from your project manager:",
   "main": "index.js",
-  "directories": {
-  },
+  "directories": {},
   "scripts": {
+    "dev": "nodemon index.js",
+    "seed": "node seed.js",
     "start": "node index.js",
-    "start:dev": "nodemon index.js",
     "test": "echo 'no tests set up'"
   },
   "repository": {
@@ -20,5 +20,7 @@
     "url": "https://github.com/skawaguchi/pirple-node-masterclass-assignment-2/issues"
   },
   "homepage": "https://github.com/skawaguchi/pirple-node-masterclass-assignment-2#readme",
-  "devDependencies": {}
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
 }
