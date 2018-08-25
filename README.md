@@ -2,8 +2,8 @@
 
 ## How to Run the App
 1. This assumes you have nvm and node 10. Run `nvm use`.
-1. Create an `./http` folder. Note that this is excluded by `.gitignore`.
-1. Generate `cert.pem` and `key.pem` and add them to a `./http`.
+1. Run `npm run seed` to set up the required folders.
+1. Generate a `cert.pem` and `key.pem` and add them to the `./http` directory.
 1. Run `npm start`.
 
 ## Requirements
