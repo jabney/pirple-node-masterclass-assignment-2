@@ -1,0 +1,28 @@
+{
+    "sizes": [
+        "SMALL",
+        "MEDIUM",
+        "LARGE",
+        "EXTRA_LARGE"
+    ],
+    "toppings": {
+        "cheese": [
+            "MOZZARELLA",
+            "FOUR_CHEESE_BLEND"
+        ],
+        "meat": [
+            "PEPPERONI",
+            "ANCHOVIES",
+            "SPICY_SAUSAGE"
+        ],
+        "vegetables": [
+            "ONIONS",
+            "GREEN_PEPPERS",
+            "TOMATOES"
+        ]
+    },
+    "cookingInstructions": [
+        "REGULAR",
+        "WELL_DONE"
+    ]
+}
