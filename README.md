@@ -1,4 +1,10 @@
 # Node Masterclass Assignment 2: Pizza API
+
+## How to Run the App
+1. Create an `./http` folder. Note that this is excluded by `.gitignore`.
+1. Generate `cert.pem` and `key.pem` and add them to a `./http`.
+1. Run `npm start`.
+
 ## How to Test
 1. Run `nvm use`.
 1. Run `npm run test`.

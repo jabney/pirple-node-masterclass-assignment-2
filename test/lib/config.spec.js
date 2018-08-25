@@ -16,7 +16,7 @@ describe('config', () => {
     it('should return the config for staging by default', () => {
         stubProcessEnv('');
 
-        const config = require('../lib/config')();
+        const config = require('../../lib/config')();
 
         assert.strictEqual(config.envName, 'staging');
     });
@@ -24,7 +24,7 @@ describe('config', () => {
     it('should return the config for production', () => {
         stubProcessEnv('PRODUCTION');
 
-        const config = require('../lib/config')();
+        const config = require('../../lib/config')();
 
         assert.strictEqual(config.envName, 'production');
     });
