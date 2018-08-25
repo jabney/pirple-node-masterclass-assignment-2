@@ -1,15 +1,10 @@
 # Node Masterclass Assignment 2: Pizza API
 
 ## How to Run the App
+1. This assumes you have nvm and node 10. Run `nvm use`.
 1. Create an `./http` folder. Note that this is excluded by `.gitignore`.
 1. Generate `cert.pem` and `key.pem` and add them to a `./http`.
 1. Run `npm start`.
-
-## How to Test
-1. Run `nvm use`.
-1. Run `npm run test`.
-
-Note: You can also run `nvm run coverage` if you want to see coverage numbers.
 
 ## Requirements
 You are building the API for a pizza-delivery company. Don't worry about a frontend, just build the API. Here's the spec from your project manager:
