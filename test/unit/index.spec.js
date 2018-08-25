@@ -1,6 +1,6 @@
 const sinon = require('sinon');
 
-const server = require('../lib/server');
+const server = require('../../lib/server');
 
 describe('main application', () => {
     afterEach(() => {
@@ -10,7 +10,7 @@ describe('main application', () => {
     it('should start the app', () => {
         const serverStub = sinon.stub(server, 'init');
 
-        require('../index');
+        require('../../index');
 
         sinon.assert.calledOnce(serverStub);
     });

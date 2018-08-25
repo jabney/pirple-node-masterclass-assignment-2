@@ -2,7 +2,7 @@ const assert = require('assert');
 const sinon = require('sinon');
 const https = require('https');
 
-const server = require('../../lib/server');
+const server = require('../../../lib/server');
 
 describe('server', () => {
     let consoleStub,
