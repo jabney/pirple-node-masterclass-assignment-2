@@ -1,0 +1,45 @@
+{
+    "sizes": {
+        "type": "single",
+        "items": [
+            {"type": "SMALL", "price": 0.5},
+            {"type": "MEDIUM", "price": 0.75},
+            {"type": "LARGE", "price": 1},
+            {"type": "EXTRA_LARGE", "price": 1.25}
+        ]
+    },
+    "toppings": {
+        "cheese": {
+            "type": "single",
+            "items": [
+                {"type": "MOZZARELLA"},
+                {"type": "FOUR_CHEESE_BLEND"},
+                {"type": "CHEDDAR"}
+            ]
+        },
+        "meat": {
+            "type": "multiple",
+            "items": [
+                {"type": "PEPPERONI"},
+                {"type": "ANCHOVIES"},
+                {"type": "SPICY_SAUSAGE"}
+            ]
+        },
+        "vegetables": {
+            "type": "multiple",
+            "items": [
+                {"type": "ONIONS"},
+                {"type": "GREEN_PEPPERS"},
+                {"type": "TOMATOES"}
+            ]
+        }
+    },
+    "cookingInstructions": {
+        "type": "single",
+        "items": [
+            {"type": "LIGHTLY_DONE"},
+            {"type": "REGULAR"},
+            {"type": "WELL_DONE"}
+        ]
+    }
+}
