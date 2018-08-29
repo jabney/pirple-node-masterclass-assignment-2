@@ -11,10 +11,12 @@ const getDirectoryCreationMethod = (directoryPath) =>
     };
 
 const checkAndCreateTokensDirectory = getDirectoryCreationMethod('.data/tokens');
+const checkAndCreateOrdersDirectory = getDirectoryCreationMethod('.data/orders');
 const checkAndCreateUsersDirectory = getDirectoryCreationMethod('.data/users');
 
 const checkAndCreateDirectories = () => {
     checkAndCreateTokensDirectory();
+    checkAndCreateOrdersDirectory();
     checkAndCreateUsersDirectory();
 };
 
