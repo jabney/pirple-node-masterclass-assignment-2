@@ -6,6 +6,7 @@
   "directories": {},
   "scripts": {
     "dev": "nodemon index.js",
+    "dev:inspect": "nodemon --inspect index.js",
     "seed": "node seed.js",
     "start": "node index.js",
     "test": "echo 'no tests set up'"
