@@ -1,45 +1,38 @@
 {
-    "sizes": {
+    "size": {
+        "isRequired": true,
         "type": "single",
-        "items": [
-            {"type": "SMALL", "price": 0.5},
-            {"type": "MEDIUM", "price": 0.75},
-            {"type": "LARGE", "price": 1},
-            {"type": "EXTRA_LARGE", "price": 1.25}
-        ]
+        "items": {
+            "SMALL": {"price": 800},
+            "MEDIUM": {"price": 1200},
+            "LARGE": {"price": 1800},
+            "EXTRA_LARGE": {"price": 2400}
+        }
     },
     "toppings": {
         "cheese": {
             "type": "single",
-            "items": [
-                {"type": "MOZZARELLA"},
-                {"type": "FOUR_CHEESE_BLEND"},
-                {"type": "CHEDDAR"}
-            ]
+            "items": {
+                "MOZZARELLA": {"price": 50},
+                "FOUR_CHEESE_BLEND": {"price": 50},
+                "CHEDDAR": {"price": 0}
+            }
         },
         "meat": {
             "type": "multiple",
-            "items": [
-                {"type": "PEPPERONI"},
-                {"type": "ANCHOVIES"},
-                {"type": "SPICY_SAUSAGE"}
-            ]
+            "items": {
+                "PEPPERONI": {"price": 100},
+                "ANCHOVIES": {"price": 100},
+                "SPICY_SAUSAGE": {"price": 100}
+            }
         },
         "vegetables": {
             "type": "multiple",
-            "items": [
-                {"type": "ONIONS"},
-                {"type": "GREEN_PEPPERS"},
-                {"type": "TOMATOES"}
-            ]
+            "items": {
+                "ONIONS": {"price": 50},
+                "GREEN_PEPPERS": {"price": 100},
+                "TOMATOES": {"price": 100}
+            }
         }
-    },
-    "cookingInstructions": {
-        "type": "single",
-        "items": [
-            {"type": "LIGHTLY_DONE"},
-            {"type": "REGULAR"},
-            {"type": "WELL_DONE"}
-        ]
     }
 }
