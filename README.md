@@ -1,9 +1,10 @@
 # Node Masterclass Assignment 2: Pizza API
+This app allows you to securely order a pizza using Stripe, and sends a confirmation email using Mailgun.
 
 ## How to Run the App
-1. This assumes you have nvm and node 10. Run `nvm use`.
-1. Run `npm run seed` to set up the required folders.
-1. Generate a `cert.pem` and `key.pem` and add them to the `./http` directory.
+1. This app runs on Node 10. If you have [`nvm`](https://github.com/creationix/nvm) run `nvm use`.
+1. Run `npm run seed` to set up the required data folders.
+1. Generate a `cert.pem` and `key.pem` and add them to the `./https` directory.
 1. Run `npm start`.
 
 ## Testing the App
