@@ -41,8 +41,11 @@ I suggest you use [Postman](https://www.getpostman.com/apps) to test this app. Y
 - `targetEmail`
 - `password`
 
+### API Documentation
 #### `/users`
-##### Create a User
+<details>
+<summary>Create a User</summary>
+
 1. POST `https://localhost:5556/users`.
 1. Body (raw application/json):
     ```json
@@ -61,13 +64,19 @@ I suggest you use [Postman](https://www.getpostman.com/apps) to test this app. Y
     }
     ```
 1. Note that we storing name, email address, and street address. Their email will be the primary key for their membership.
+</details>
 
-##### Get User
+<details>
+<summary>Get User</summary>
+
 1. Make sure you've added your `tokenId` and are passing it in `headers.token`.
 1. GET `https://localhost:5556/users?email={{targetEmail}}`.
 1. You should see the user selected and an entry in `.data/users`.
+</details>
 
-#### Modify a User
+<details>
+<summary>Modify a User</summary>
+
 1. Make sure you've added your `tokenId` and are passing it in `headers.token`.
 1. PUT `https://localhost:5556/users`
 1. Body (raw application/json):
@@ -80,8 +89,11 @@ I suggest you use [Postman](https://www.getpostman.com/apps) to test this app. Y
     }
     ```
 1. You should be able to `Get User` again with the details updated. In the example above we change the `city` and remove the `phoneNumber`.
+</details>
 
-#### Delete a User
+<details>
+<summary>Delete a User</summary>
+
 1. Make sure you've added your `tokenId` and are passing it in `headers.token`.
 1. DELETE `https://localhost:5556/users`
 1. Body (raw application/json):
@@ -91,9 +103,13 @@ I suggest you use [Postman](https://www.getpostman.com/apps) to test this app. Y
         "password": "{{password}}"
     }
     ```
+</details>
 
 #### `/tokens`
-##### Create a Token
+
+<details>
+<summary>Create a Token</summary>
+
 1. POST `https://localhost:5556/tokens`.
 1. Body (raw application/json):
     ```json
@@ -103,20 +119,31 @@ I suggest you use [Postman](https://www.getpostman.com/apps) to test this app. Y
     }
     ```
 1. **Copy the response `tokenId`**.
+</details>
 
-##### Delete a Token
+<details>
+<summary>Delete a Token</summary>
+
 Use this to logout of the application.
 1. DELETE `https://localhost:5556/tokens?tokenId={{token}}`.
 1. Try to call any end-point. It should return an error with "Missing or invalid token".
+</details>
 
 #### `/menu`
-##### Get Menu
+
+<details>
+<summary>Get Menu</summary>
+
 You'll need to reference this to create an order. You can also just refer to `.data/menu/items.json`.
 1. Make sure you've added your `tokenId` and are passing it in `headers.token`.
 1. GET `https://localhost:5556/menu?email={{targetEmail}}`.
+</details>
 
 #### `/order`
-##### Create an Order
+
+<details>
+<summary>Create an Order</summary>
+
 1. Make sure you've added your `tokenId` and are passing it in `headers.token`.
 1. You will have to hand-craft your pizza order to simulate the shopping cart. This requires getting to know the API (which is pretty basic at the moment). In the real world, a UI would make ths an intuitive process. The Order API requires:
     - `size`
@@ -148,9 +175,13 @@ You'll need to reference this to create an order. You can also just refer to `.d
 1. You should receive a response saying that the order was placed and that a confirmation email was sent.
 1. Login to Stripe and check out [test payments](https://dashboard.stripe.com/test/payments). You should be able to see your charge.
 1. Open your email. You should have a confirmation email with the matching amount.
+</details>
 
 #### `/charge`
-##### Create a Charge
+
+<details>
+<summary>Create a Charge</summary>
+
 Note that this will email you a confirmation.
 1. Make sure you've added your `tokenId` and are passing it in `headers.token`.
 1. POST `https://localhost:5556/charge`
@@ -164,8 +195,13 @@ Note that this will email you a confirmation.
         "receiptEmail": "{{targetEmail}}"
     }
     ```
+</details>
+
 #### `/email`
-##### Send an Email
+
+<details>
+<summary>Send an Email</summary>
+
 1. Make sure you've added your `tokenId` and are passing it in `headers.token`.
 1. POST `https://localhost:5556/email`
 1. Body (raw application/json):
@@ -177,19 +213,8 @@ Note that this will email you a confirmation.
         "customerEmail": "{{targetEmail}}"
     }
     ```
+</details>
 
 #### Undocumented End-Points
 - Get Token
 - Update Token
-
-## Original Assignment Requirements
-You are building the API for a pizza-delivery company. Don't worry about a frontend, just build the API. Here's the spec from your project manager:
-
-1. New users can be created, their information can be edited, and they can be deleted. We should store their name, email address, and street address.
-2. Users can log in and log out by creating or destroying a token.
-3. When a user is logged in, they should be able to GET all the possible menu items (these items can be hardcoded into the system).
-4. A logged-in user should be able to fill a shopping cart with menu items
-5. A logged-in user should be able to create an order. You should integrate with the Sandbox of Stripe.com to accept their payment. Note: Use the stripe sandbox for your testing. Follow this link and click on the "tokens" tab to see the fake tokens you can use server-side to confirm the integration is working: https://stripe.com/docs/testing#cards
-6. When an order is placed, you should email the user a receipt. You should integrate with the sandbox of Mailgun.com for this. Note: Every Mailgun account comes with a sandbox email account domain (whatever@sandbox123.mailgun.org) that you can send from by default. So, there's no need to setup any DNS for your domain for this task https://documentation.mailgun.com/en/latest/faqs.html#how-do-i-pick-a-domain-name-for-my-mailgun-account
-
-This is an open-ended assignment. You may take any direction you'd like to go with it, as long as your project includes the requirements. It can include anything else you wish as well.
