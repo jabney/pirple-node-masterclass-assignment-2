@@ -32,15 +32,16 @@ Mailgun is used to send a confirmation email for our customer pizza orders.
 ### Ordering Pizza
 Here are instructions on how to test the main methods needed for this assignment.
 
-#### Before You Begin
-I suggest you use [Postman](https://www.getpostman.com/apps) to test this app. You can take advantage of its Environment Variables to make testing easy. The examples below will include Postman variables (indicated with `{{}}`). These are the variables I use:
+#### Setting Up Postman
+I suggest you use [Postman](https://www.getpostman.com/apps) to test this app. You can take advantage of its Environment Variables to make testing easy. The examples below will include Postman variables (indicated with `{{}}`). These are the variables I used:
 - `token`
 - `cardId`
 - `customerId`
 - `targetEmail`
 - `password`
 
-#### Create a User.
+#### `/users`
+##### Create a User.
 1. POST `https://localhost:5556/users`.
 1. Body (raw application/json):
     ```json
@@ -60,22 +61,7 @@ I suggest you use [Postman](https://www.getpostman.com/apps) to test this app. Y
     ```
 1. Note that we storing name, email address, and street address. Their email will be the primary key for their membership.
 
-#### Create a Token
-1. POST `https://localhost:5556/tokens`.
-1. Body (raw application/json):
-    ```json
-    {
-        "email": "{{targetEmail}}",
-        "password": "{{password}}"
-    }
-    ```
-1. **Copy the response `tokenId`**.
-
-#### Delete a Token
-1. DELETE `https://localhost:5556/tokens?tokenId={{token}}`.
-1. Try to call any end-point. It should return an error with "Missing or invalid token".
-
-#### Get User
+##### Get User
 1. Make sure you've added your `tokenId` and are passing it in `headers.token`.
 1. GET `https://localhost:5556/users?email={{targetEmail}}`.
 1. You should see the user selected and an entry in `.data/users`.
@@ -105,12 +91,31 @@ I suggest you use [Postman](https://www.getpostman.com/apps) to test this app. Y
     }
     ```
 
-#### Get Menu
-You'll need to this to create an order. You can also just refer to `.data/menu/items.json`.
+#### `/tokens`
+##### Create a Token
+1. POST `https://localhost:5556/tokens`.
+1. Body (raw application/json):
+    ```json
+    {
+        "email": "{{targetEmail}}",
+        "password": "{{password}}"
+    }
+    ```
+1. **Copy the response `tokenId`**.
+
+##### Delete a Token
+Use this to logout of the application.
+1. DELETE `https://localhost:5556/tokens?tokenId={{token}}`.
+1. Try to call any end-point. It should return an error with "Missing or invalid token".
+
+#### `/menu`
+##### Get Menu
+You'll need to reference this to create an order. You can also just refer to `.data/menu/items.json`.
 1. Make sure you've added your `tokenId` and are passing it in `headers.token`.
 1. GET `https://localhost:5556/menu?email={{targetEmail}}`.
 
-#### Create an Order
+#### `/order`
+##### Create an Order
 1. Make sure you've added your `tokenId` and are passing it in `headers.token`.
 1. You will have to hand-craft your pizza order to simulate the shopping cart. This requires getting to know the API (which is pretty basic at the moment). In the real world, a UI would make ths an intuitive process. The Order API requires:
     - `size`
@@ -143,7 +148,8 @@ You'll need to this to create an order. You can also just refer to `.data/menu/i
 1. Login to Stripe and check out [test payments](https://dashboard.stripe.com/test/payments). You should be able to see your charge.
 1. Open your email. You should have a confirmation email with the matching amount.
 
-#### Create a Charge
+#### `/charge`
+##### Create a Charge
 Note that this will email you a confirmation.
 1. Make sure you've added your `tokenId` and are passing it in `headers.token`.
 1. POST `https://localhost:5556/charge`
@@ -157,8 +163,8 @@ Note that this will email you a confirmation.
         "receiptEmail": "{{targetEmail}}"
     }
     ```
-
-#### Send an Email
+#### `/email`
+##### Send an Email
 1. Make sure you've added your `tokenId` and are passing it in `headers.token`.
 1. POST `https://localhost:5556/email`
 1. Body (raw application/json):
