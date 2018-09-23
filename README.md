@@ -41,7 +41,7 @@ I suggest you use [Postman](https://www.getpostman.com/apps) to test this app. Y
 - `password`
 
 #### `/users`
-##### Create a User.
+##### Create a User
 1. POST `https://localhost:5556/users`.
 1. Body (raw application/json):
     ```json
